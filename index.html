@@ -5,19 +5,93 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hadara Payment Methods</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; padding: 20px; text-align: center; }
-        h1 { color: #333; }
-        .payment-method { margin: 10px 0; font-size: 18px; }
-        a { color: #007bff; text-decoration: none; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+            background: #f4f4f4;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        .payment-method {
+            background: #ecf0f1;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-size: 18px;
+        }
+        .copy-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #ecf0f1;
+            padding: 10px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+        .copy-container input {
+            border: none;
+            background: transparent;
+            font-size: 16px;
+            width: 100%;
+        }
+        .copy-btn {
+            padding: 5px 10px;
+            border: none;
+            background: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
-    <h1>Hadara Payment Methods</h1>
-    <p class="payment-method"><strong>RIB compte bancaire HTCG:</strong> FR76 1027 8089 2200 0227 138</p>
-    <p class="payment-method"><strong>Paylib/Wero:</strong> Sidy BA (06 40 88 47 39) or Abdoullah Ndoye (06 18 64 36 24)</p>
-    <p class="payment-method"><strong>Espèces:</strong> Remise en main propre à Sidy BA ou Abdoullah NDOYE</p>
-    <p class="payment-method"><strong>Carte bancaire:</strong> <a href="https://lydia-app.com/pots?id=56892-htcg-hadara-talibe-cheikh-grenoble" target="_blank">Lydia Payment Link</a></p>
-    <p class="payment-method"><strong>PayPal:</strong> <a href="https://paypal.me/AbdoullahN" target="_blank">paypal.me/AbdoullahN</a></p>
+
+    <div class="container">
+        <h1>Différents moyens de participation HTCG</h1>
+
+        <div class="payment-method">
+            <strong>RIB Compte Bancaire HTCG:</strong>
+            <div class="copy-container">
+                <input type="text" value="FR76 1027 8089 2200 0227 138" id="ribInput" readonly>
+                <button class="copy-btn" onclick="copyRIB()">copier</button>
+            </div>
+        </div>
+        
+        <div class="payment-method"><strong>Carte Bancaire:</strong> <a href="https://lydia-app.com/pots?id=56892-htcg-hadara-talibe-cheikh-grenoble" target="_blank">Lien de paiement par carte bancaire</a></div>
+        
+        <div class="payment-method"><strong>Paylib/Wero:</strong> Sidy BA au 06 40 88 47 39 ou  Abdoullah Ndoye au 06 18 64 36 24</div>
+        <div class="payment-method"><strong>Espèces:</strong> Remise en main propre à Sidy BA ou Abdoullah NDOYE</div>
+        
+        <div class="payment-method"><strong>PayPal:</strong> <a href="https://paypal.me/AbdoullahN" target="_blank">paypal.me/AbdoullahN</a></div>
+    </div>
+
+    <script>
+        function copyRIB() {
+            var ribInput = document.getElementById("ribInput");
+            ribInput.select();
+            document.execCommand("copy");
+            alert("RIB Copied: " + ribInput.value);
+        }
+    </script>
+
 </body>
 </html>
-
