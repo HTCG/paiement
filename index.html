@@ -32,7 +32,7 @@
         }
         .copy-container {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
             background: #ecf0f1;
             padding: 10px;
@@ -44,14 +44,17 @@
             background: transparent;
             font-size: 16px;
             width: 100%;
+            text-align: center;
+            margin-bottom: 10px;
         }
         .copy-btn {
-            padding: 5px 10px;
+            padding: 8px 15px;
             border: none;
             background: #3498db;
             color: white;
             border-radius: 5px;
             cursor: pointer;
+            font-size: 14px;
         }
         a {
             color: #3498db;
@@ -62,7 +65,7 @@
             text-decoration: underline;
         }
         .logo {
-            width: 150px; /* Adjust the size of the logo */
+            width: 150px;
             margin: 20px auto;
         }
     </style>
@@ -70,8 +73,7 @@
 <body>
 
     <div class="container">
-        <!-- Logo -->
-        <img src="logo.png" alt="Hadara Logo" class="logo">  <!-- Replace 'logo.png' with your logo's actual path -->
+        <img src="logo.png" alt="Hadara Logo" class="logo">
 
         <h1>Différents moyens de participation HTCG</h1>
 
@@ -79,7 +81,7 @@
             <strong>RIB Compte Bancaire HTCG:</strong>
             <div class="copy-container">
                 <input type="text" value="FR76 1027 8089 2200 0227 138" id="ribInput" readonly>
-                <button class="copy-btn" onclick="copyRIB()">copier</button>
+                <button class="copy-btn" onclick="copyRIB()">Copier</button>
             </div>
         </div>
         
@@ -94,9 +96,9 @@
     <script>
         function copyRIB() {
             var ribInput = document.getElementById("ribInput");
-            ribInput.select();
-            document.execCommand("copy");
-            alert("RIB Copié: " + ribInput.value);
+            navigator.clipboard.writeText(ribInput.value).then(() => {
+                alert("RIB Copié: " + ribInput.value);
+            });
         }
     </script>
 
